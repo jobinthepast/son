@@ -30,6 +30,26 @@ th { background:#bfbfbf; font-weight:bold; }
   50%{outline:3px solid transparent}
   100%{outline:3px solid #fff700}
 }
+
+.study-box {
+  /* border: 1px solid #ccc; */
+  border: none;
+  padding: 12px;
+  background: #fff;
+  width: fit-content;
+  margin-top: 16px;
+}
+
+.study-item {
+  margin: 6px 0;
+  text-align: left;
+}
+
+#newWeekBtn {
+  margin-top: 12px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
 </style>
 </head>
 
@@ -53,7 +73,8 @@ th { background:#bfbfbf; font-weight:bold; }
 <td data-day="3" class="gray">wake up</td>
 <td data-day="4" class="gray">wake up</td>
 <td data-day="5" class="gray">wake up</td>
-<td data-day="6"></td><td data-day="0"></td>
+<td data-day="6" class="gray"></td>
+<td data-day="0" class="gray"></td>
 </tr>
 
 <tr data-time="07:00">
@@ -63,7 +84,8 @@ th { background:#bfbfbf; font-weight:bold; }
 <td data-day="3" class="gray">to school</td>
 <td data-day="4" class="gray">to school</td>
 <td data-day="5" class="gray">to school</td>
-<td data-day="6"></td><td data-day="0"></td>
+<td data-day="6" class="gray"></td>
+<td data-day="0" class="gray"></td>
 </tr>
 
 <tr data-time="08:00">
@@ -73,12 +95,12 @@ th { background:#bfbfbf; font-weight:bold; }
 - soạn bài ngày hôm sau tại lớp
 </td>
 <td data-day="6" class="gray">cô Thanh</td>
-<td data-day="0"></td>
+<td data-day="0" class="gray"></td>
 </tr>
 
 <tr data-time="10:00">
 <td class="time">10:00</td>
-<td data-day="6"></td>
+<td data-day="6" class="gray"></td>
 <td data-day="0" class="gray">cô Lan</td>
 </tr>
 
@@ -107,61 +129,175 @@ th { background:#bfbfbf; font-weight:bold; }
 <tr data-time="17:00">
 <td class="time">17:00</td>
 <td data-day="1" class="red">BJJ</td>
-<td data-day="2"></td>
+<td data-day="2" class="gray"></td>
 <td data-day="3" class="gray">cô Thanh</td>
-<td data-day="4"></td>
+<td data-day="4" class="gray"></td>
 <td data-day="5" class="red">BJJ</td>
 <td data-day="6"></td><td data-day="0"></td>
 </tr>
 
 <tr data-time="17:30">
 <td class="time">17:30</td>
-<td data-day="1"></td>
+<td data-day="1" class="gray"></td>
 <td data-day="2" class="blue">swim</td>
-<td data-day="3"></td>
+<td data-day="3" class="gray"></td>
 <td data-day="4" class="blue">swim</td>
-<td data-day="5"></td>
+<td data-day="5" class="gray"></td>
 <td data-day="6"></td><td data-day="0"></td>
 </tr>
 
 <tr data-time="19:00">
 <td class="time">19:00</td>
 <td data-day="1" class="black">JKD</td>
-<td data-day="2"></td>
-<td data-day="3"></td>
-<td data-day="4"></td>
+<td data-day="2" class="gray"></td>
+<td data-day="3" class="gray"></td>
+<td data-day="4" class="gray"></td>
 <td data-day="5" class="black">JKD</td>
 <td data-day="6"></td><td data-day="0"></td>
 </tr>
 
 <tr data-time="19:20">
 <td class="time">19:20</td>
-<td data-day="1"></td>
-<td data-day="2"></td>
+<td data-day="1" class="gray"></td>
+<td data-day="2" class="gray"></td>
 <td data-day="3" class="black">JKD</td>
-<td data-day="4"></td>
-<td data-day="5"></td>
+<td data-day="4" class="gray"></td>
+<td data-day="5" class="gray"></td>
 <td data-day="6"></td><td data-day="0"></td>
 </tr>
 
 <tr data-time="19:30">
 <td class="time">19:30</td>
-<td data-day="1"></td>
+<td data-day="1" class="gray"></td>
 <td data-day="2" class="gray">eat</td>
-<td data-day="3"></td>
+<td data-day="3" class="gray"></td>
 <td data-day="4" class="gray">eat</td>
-<td data-day="5"></td>
+<td data-day="5" class="gray"></td>
 <td data-day="6"></td>
 <td data-day="0"></td>
 </tr>
 
 <tr data-time="20:15">
 <td class="time">20:15</td>
-<td data-day="1"></td>
-<td data-day="2" rowspan="3" data-start="20:15" data-end="21:00">study</td>
-<td data-day="3"></td>
-<td data-day="4" rowspan="3" data-start="20:15" data-end="21:00">study</td>
-<td data-day="5"></td>
+<td data-day="1" class="gray"></td>
+<td data-day="2" rowspan="3" data-start="20:15" data-end="21:00">
+  <div class="study-box">
+    <div class="study-item">
+      <input type="checkbox" id="math">
+      <label for="math">Phiếu Toán</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="vietnamese">
+      <label for="vietnamese">Phiếu TV</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="english">
+      <label for="english">Đọc TV x3</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="cothanh">
+      <label for="cothanh">BT cô Thanh</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="colan">
+      <label for="colan">BT cô Lan</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="daddy">
+      <label for="daddy">TA Daddy</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="quanao">
+      <label for="quanao">Cất quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="donbanhoc">
+      <label for="donbanhoc">Dọn bàn học</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapsachvo">
+      <label for="sapsachvo">Sắp sách vở</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapquanao">
+      <label for="sapquanao">Sắp quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="danhrang">
+      <label for="danhrang">Đánh răng</label>
+    </div>
+  </div>
+</td>
+<td data-day="3" class="gray"></td>
+<td data-day="4" rowspan="3" data-start="20:15" data-end="21:00">
+  <div class="study-box">
+    <div class="study-item">
+      <input type="checkbox" id="math">
+      <label for="math">Phiếu Toán</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="vietnamese">
+      <label for="vietnamese">Phiếu TV</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="english">
+      <label for="english">Đọc TV x3</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="cothanh">
+      <label for="cothanh">BT cô Thanh</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="colan">
+      <label for="colan">BT cô Lan</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="daddy">
+      <label for="daddy">TA Daddy</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="quanao">
+      <label for="quanao">Cất quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="donbanhoc">
+      <label for="donbanhoc">Dọn bàn học</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapsachvo">
+      <label for="sapsachvo">Sắp sách vở</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapquanao">
+      <label for="sapquanao">Sắp quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="danhrang">
+      <label for="danhrang">Đánh răng</label>
+    </div>
+  </div>
+</td>
+<td data-day="5" class="gray"></td>
 <td data-day="6"></td>
 <td data-day="0"></td>
 </tr>
@@ -177,9 +313,180 @@ th { background:#bfbfbf; font-weight:bold; }
 
 <tr data-time="21:00">
 <td class="time">21:00</td>
-<td data-day="1">study</td>
-<td data-day="3">study</td>
-<td data-day="5">study</td>
+<td data-day="1">
+  <div class="study-box">
+    <div class="study-item">
+      <input type="checkbox" id="math">
+      <label for="math">Phiếu Toán</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="vietnamese">
+      <label for="vietnamese">Phiếu TV</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="english">
+      <label for="english">Đọc TV x3</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="cothanh">
+      <label for="cothanh">BT cô Thanh</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="colan">
+      <label for="colan">BT cô Lan</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="daddy">
+      <label for="daddy">TA Daddy</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="quanao">
+      <label for="quanao">Cất quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="donbanhoc">
+      <label for="donbanhoc">Dọn bàn học</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapsachvo">
+      <label for="sapsachvo">Sắp sách vở</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapquanao">
+      <label for="sapquanao">Sắp quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="danhrang">
+      <label for="danhrang">Đánh răng</label>
+    </div>
+  </div>
+</td>
+<td data-day="3">
+  <div class="study-box">
+    <div class="study-item">
+      <input type="checkbox" id="math">
+      <label for="math">Phiếu Toán</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="vietnamese">
+      <label for="vietnamese">Phiếu TV</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="english">
+      <label for="english">Đọc TV x3</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="cothanh">
+      <label for="cothanh">BT cô Thanh</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="colan">
+      <label for="colan">BT cô Lan</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="daddy">
+      <label for="daddy">TA Daddy</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="quanao">
+      <label for="quanao">Cất quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="donbanhoc">
+      <label for="donbanhoc">Dọn bàn học</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapsachvo">
+      <label for="sapsachvo">Sắp sách vở</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapquanao">
+      <label for="sapquanao">Sắp quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="danhrang">
+      <label for="danhrang">Đánh răng</label>
+    </div>
+  </div>
+</td>
+<td data-day="5">
+  <div class="study-box">
+    <div class="study-item">
+      <input type="checkbox" id="math">
+      <label for="math">Phiếu Toán</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="vietnamese">
+      <label for="vietnamese">Phiếu TV</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="english">
+      <label for="english">Đọc TV x3</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="cothanh">
+      <label for="cothanh">BT cô Thanh</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="colan">
+      <label for="colan">BT cô Lan</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="daddy">
+      <label for="daddy">TA Daddy</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="quanao">
+      <label for="quanao">Cất quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="donbanhoc">
+      <label for="donbanhoc">Dọn bàn học</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapsachvo">
+      <label for="sapsachvo">Sắp sách vở</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="sapquanao">
+      <label for="sapquanao">Sắp quần áo</label>
+    </div>
+
+    <div class="study-item">
+      <input type="checkbox" id="danhrang">
+      <label for="danhrang">Đánh răng</label>
+    </div>
+  </div>
+</td>
 <td data-day="6"></td>
 <td data-day="0"></td>
 </tr>
@@ -195,48 +502,81 @@ th { background:#bfbfbf; font-weight:bold; }
 </tr>
 </table>
 
+<button id="newWeekBtn">Start a new week</button>
+
 <script>
-function toMin(t){let[a,b]=t.split(":");return a*60+ +b}
+  function toMin(t){let[a,b]=t.split(":");return a*60+ +b}
 
-function isTimeBetween(now, start, end) {
-  return now >= toMin(start) && now < toMin(end);
-}
-
-function tick(){
-  const now=new Date()
-  const day=now.getDay()
-  const cur=now.getHours()*60+now.getMinutes()
-
-
-  document.querySelectorAll(".day-highlight,.time-highlight,.blink")
-    .forEach(e=>e.classList.remove("day-highlight","time-highlight","blink"))
-
-  document.querySelector(`th[data-day="${day}"]`)?.classList.add("day-highlight")
-
-  const rows=[...document.querySelectorAll("tr[data-time]")]
-  for(let i=0;i<rows.length-1;i++){
-    if(cur>=toMin(rows[i].dataset.time)&&cur<toMin(rows[i+1].dataset.time)){
-      rows[i].children[0].classList.add("time-highlight")
-      rows[i].querySelectorAll("td").forEach(td=>{
-        if(td.dataset.day==day || td.dataset.days?.includes(day))
-          td.classList.add("blink")
-      })
-      break
-    }
+  function isTimeBetween(now, start, end) {
+    return now >= toMin(start) && now < toMin(end);
   }
 
-  document.querySelectorAll("td[rowspan]").forEach(td => {
-    const start = td.dataset.start;
-    const end = td.dataset.end;
-    if (isTimeBetween(cur, start, end)) {
-      td.classList.add("blink");
-    } else {
-      td.classList.remove("blink");
+  function tick(){
+    const now=new Date()
+    const day=now.getDay()
+    const cur=now.getHours()*60+now.getMinutes()
+
+
+    document.querySelectorAll(".day-highlight,.time-highlight,.blink")
+      .forEach(e=>e.classList.remove("day-highlight","time-highlight","blink"))
+
+    document.querySelector(`th[data-day="${day}"]`)?.classList.add("day-highlight")
+
+    const rows=[...document.querySelectorAll("tr[data-time]")]
+    for(let i=0;i<rows.length-1;i++){
+      if(cur>=toMin(rows[i].dataset.time)&&cur<toMin(rows[i+1].dataset.time)){
+        rows[i].children[0].classList.add("time-highlight")
+        rows[i].querySelectorAll("td").forEach(td=>{
+          if(td.dataset.day==day || td.dataset.days?.includes(day))
+            td.classList.add("blink")
+        })
+        break
+      }
+    }
+
+    document.querySelectorAll("td[rowspan]").forEach(td => {
+      const start = td.dataset.start;
+      const end = td.dataset.end;
+      if (isTimeBetween(cur, start, end)) {
+        td.classList.add("blink");
+      } else {
+        td.classList.remove("blink");
+      }
+    });
+  }
+
+  setInterval(tick,1000);tick()
+
+  // checkboxes handling
+  const checkboxes = document.querySelectorAll('.study-box input[type="checkbox"]');
+  const newWeekBtn = document.getElementById('newWeekBtn');
+
+  // Restore state on load
+  checkboxes.forEach(cb => {
+    const saved = localStorage.getItem(cb.id);
+    if (saved === 'true') {
+      cb.checked = true;
     }
   });
-}
 
-setInterval(tick,1000);tick()
+  // Save state on change
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      localStorage.setItem(cb.id, cb.checked);
+    });
+  });
+
+  // Clear all on new week
+  newWeekBtn.addEventListener('click', () => {
+    if (!confirm('Are you sure? This will clear the study checkboxes.')) return;
+
+    checkboxes.forEach(cb => {
+      cb.checked = false;
+      localStorage.setItem(cb.id, false);
+    });
+  });
+  // END for - checkboxes handling
+
 </script>
 </body>
 </html>
