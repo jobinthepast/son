@@ -5,51 +5,67 @@
 <title>Schedule</title>
 
 <style>
-body { background:#fff; font-family:Arial; }
-table { border-collapse:collapse; margin:20px auto; }
-th,td { border:1px solid #555; padding:6px; text-align:center; }
+  body { background:#fff; font-family:Arial; }
+  table { border-collapse:collapse; margin:20px auto; }
+  th,td { border:1px solid #555; padding:6px; text-align:center; }
 
-th { background:#bfbfbf; font-weight:bold; }
-.time { background:#c9c9c9; font-weight:bold; width:80px; }
+  th { background:#bfbfbf; font-weight:bold; }
+  .time { background:#c9c9c9; font-weight:bold; width:80px; }
 
-.gray{background:#e0e0e0;color:#999}
-.red{background:#ff0000;color:#fff;font-weight:bold}
-.blue{background:#0022ff;color:#fff;font-weight:bold}
-.black{background:#000;color:#fff;font-weight:bold}
-.green{background:#55ff00;color:#000;font-weight:bold}
-.dodgerblue{background:#1e90ff;color:#fff;font-weight:bold}
+  .gray{background:#e0e0e0;color:#999}
+  .red{background:#ff0000;color:#fff;font-weight:bold}
+  .blue{background:#0022ff;color:#fff;font-weight:bold}
+  .black{background:#000;color:#fff;font-weight:bold}
+  .green{background:#55ff00;color:#000;font-weight:bold}
+  .dodgerblue{background:#1e90ff;color:#fff;font-weight:bold}
 
-.day-highlight{background:yellow!important}
-.time-highlight{background:yellow!important}
+  .day-highlight{background:yellow!important}
+  .time-highlight{background:yellow!important}
 
-.blink{
-  animation:blink 1s infinite;
-}
-@keyframes blink{
-  0%{outline:3px solid #fff700}
-  50%{outline:3px solid transparent}
-  100%{outline:3px solid #fff700}
-}
+  .blink{
+    animation:blink 1s infinite;
+  }
+  @keyframes blink{
+    0%{outline:3px solid #fff700}
+    50%{outline:3px solid transparent}
+    100%{outline:3px solid #fff700}
+  }
 
-.study-box {
-  /* border: 1px solid #ccc; */
-  border: none;
-  padding: 12px;
-  background: #fff;
-  width: fit-content;
-  margin-top: 16px;
-}
+  .study-box {
+    /* border: 1px solid #ccc; */
+    border: none;
+    padding: 12px;
+    background: #fff;
+    width: fit-content;
+    margin-top: 16px;
+  }
 
-.study-item {
-  margin: 6px 0;
-  text-align: left;
-}
+  .study-item {
+    margin: 6px 0;
+    text-align: left;
+  }
 
-#newWeekBtn {
-  margin-top: 12px;
-  padding: 6px 12px;
-  cursor: pointer;
-}
+  #newWeekBtn {
+    margin-top: 12px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+
+  .confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    top: -10px;
+    animation: fall linear forwards;
+    z-index: 9999;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
 </style>
 </head>
 
@@ -114,7 +130,7 @@ th { background:#bfbfbf; font-weight:bold; }
 <td class="time">16:00</td>
 <td data-day="6" class="green">football</td>
 <td data-day="0" class="gray" rowspan="11" data-start="16:00" data-end="22:00">
-  <div class="study-box">
+  <div class="study-box" data-box-id="study0">
     <div class="study-item">
       <input type="checkbox" id="math-0">
       <label for="math-0">Tưới cây</label>
@@ -186,7 +202,7 @@ th { background:#bfbfbf; font-weight:bold; }
 <td data-day="4" class="gray">eat</td>
 <td data-day="5" class="gray">eat</td>
 <td data-day="6" class="gray" rowspan="10" data-start="16:40" data-end="22:00">
-  <div class="study-box">
+  <div class="study-box" data-box-id="study6">
     <div class="study-item">
       <input type="checkbox" id="math-6">
       <label for="math-6">Phiếu Toán</label>
@@ -280,7 +296,7 @@ th { background:#bfbfbf; font-weight:bold; }
 <tr data-time="20:15">
 <td class="time">20:15</td>
 <td data-day="2" rowspan="3" data-start="20:15" data-end="21:00">
-  <div class="study-box">
+  <div class="study-box" data-box-id="study2">
     <div class="study-item">
       <input type="checkbox" id="math-2">
       <label for="math-2">Phiếu Toán</label>
@@ -338,7 +354,7 @@ th { background:#bfbfbf; font-weight:bold; }
   </div>
 </td>
 <td data-day="4" rowspan="3" data-start="20:15" data-end="21:00">
-  <div class="study-box">
+  <div class="study-box" data-box-id="study4">
     <div class="study-item">
       <input type="checkbox" id="math-4">
       <label for="math-4">Phiếu Toán</label>
@@ -407,7 +423,7 @@ th { background:#bfbfbf; font-weight:bold; }
 <tr data-time="21:00">
 <td class="time">21:00</td>
 <td data-day="1">
-  <div class="study-box">
+  <div class="study-box" data-box-id="study1">
     <div class="study-item">
       <input type="checkbox" id="math-1">
       <label for="math-1">Phiếu Toán</label>
@@ -465,7 +481,7 @@ th { background:#bfbfbf; font-weight:bold; }
   </div>
 </td>
 <td data-day="3">
-  <div class="study-box">
+  <div class="study-box" data-box-id="study3">
     <div class="study-item">
       <input type="checkbox" id="math-3">
       <label for="math-3">Phiếu Toán</label>
@@ -523,7 +539,7 @@ th { background:#bfbfbf; font-weight:bold; }
   </div>
 </td>
 <td data-day="5">
-  <div class="study-box">
+  <div class="study-box" data-box-id="study5">
     <div class="study-item">
       <input type="checkbox" id="math-5">
       <label for="math-5">Phiếu Toán</label>
@@ -637,35 +653,89 @@ th { background:#bfbfbf; font-weight:bold; }
 
   setInterval(tick,1000);tick()
 
-  // checkboxes handling
+  // --------------------------------
+  // checkboxes handling + phao hoa tung toe chuc mung
+  // --------------------------------
   const checkboxes = document.querySelectorAll('.study-box input[type="checkbox"]');
   const newWeekBtn = document.getElementById('newWeekBtn');
+  const studyBoxes = document.querySelectorAll('.study-box');
 
-  // Restore state on load
-  checkboxes.forEach(cb => {
-    const saved = localStorage.getItem(cb.id);
-    if (saved === 'true') {
-      cb.checked = true;
-    }
-  });
-
-  // Save state on change
-  checkboxes.forEach(cb => {
-    cb.addEventListener('change', () => {
-      localStorage.setItem(cb.id, cb.checked);
-    });
-  });
-
-  // Clear all on new week
-  newWeekBtn.addEventListener('click', () => {
-    if (!confirm('Are you sure? This will clear the study checkboxes.')) return;
+  // Restore state
+  studyBoxes.forEach(box => {
+    const checkboxes = box.querySelectorAll('input[type="checkbox"]');
 
     checkboxes.forEach(cb => {
-      cb.checked = false;
-      localStorage.setItem(cb.id, false);
+      const saved = localStorage.getItem(cb.id);
+      if (saved === 'true') cb.checked = true;
+
+      cb.addEventListener('change', () => {
+        localStorage.setItem(cb.id, cb.checked);
+        checkBoxCompleted(box);
+      });
     });
   });
-  // END for - checkboxes handling
+
+  // New Week
+  newWeekBtn.addEventListener('click', () => {
+    if (!confirm('Are you sure?')) return;
+
+    studyBoxes.forEach(box => {
+      const checkboxes = box.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(cb => {
+        cb.checked = false;
+        localStorage.setItem(cb.id, false);
+      });
+    });
+
+    localStorage.removeItem('celebrated');
+  });
+
+  function checkBoxCompleted(box) {
+    const checkboxes = box.querySelectorAll('input[type="checkbox"]');
+    const allChecked = [...checkboxes].every(cb => cb.checked);
+
+    const boxId = box.dataset.boxId || 'default';
+    const celebratedKey = 'celebrated_' + boxId;
+
+    if (allChecked && !localStorage.getItem(celebratedKey)) {
+      launchConfetti();
+      localStorage.setItem(celebratedKey, 'true');
+    }
+
+    if (!allChecked) {
+      localStorage.removeItem(celebratedKey);
+    }
+  }
+
+  function launchConfetti() {
+    const colors = ['#ff4d4d', '#ffd633', '#4dd2ff', '#4dff88', '#d24dff'];
+    const duration = 5000;
+    const start = Date.now();
+
+    const interval = setInterval(() => {
+      for (let i = 0; i < 10; i++) {
+        createConfetti(colors);
+      }
+
+      if (Date.now() - start > duration) {
+        clearInterval(interval);
+      }
+    }, 200);
+  }
+
+  function createConfetti(colors) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+
+    confetti.style.left = Math.random() * window.innerWidth + 'px';
+    confetti.style.backgroundColor =
+      colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 5000);
+  }
 
 </script>
 </body>
