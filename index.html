@@ -644,7 +644,9 @@
       const start = td.dataset.start;
       const end = td.dataset.end;
       if (isTimeBetween(cur, start, end)) {
-        td.classList.add("blink");
+        if(td.dataset.day==day || td.dataset.days?.includes(day)) {
+          td.classList.add("blink");
+        }
       } else {
         td.classList.remove("blink");
       }
