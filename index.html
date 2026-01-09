@@ -17,6 +17,7 @@ th { background:#bfbfbf; font-weight:bold; }
 .blue{background:#0022ff;color:#fff;font-weight:bold}
 .black{background:#000;color:#fff;font-weight:bold}
 .green{background:#55ff00;color:#000;font-weight:bold}
+.dodgerblue{background:#1e90ff;color:#fff;font-weight:bold}
 
 .day-highlight{background:yellow!important}
 .time-highlight{background:yellow!important}
@@ -67,12 +68,30 @@ th { background:#bfbfbf; font-weight:bold; }
 
 <tr data-time="08:00">
 <td class="time">8:00</td>
-<td colspan="5" data-days="1,2,3,4,5" class="gray">
+<td colspan="5" data-days="1,2,3,4,5" rowspan="4" data-start="08:00" data-end="16:00" class="gray">
 - chú ý nghe giảng, hiểu bài nhớ bài tại lớp<br>
 - soạn bài ngày hôm sau tại lớp
 </td>
 <td data-day="6" class="gray">cô Thanh</td>
 <td data-day="0"></td>
+</tr>
+
+<tr data-time="10:00">
+<td class="time">10:00</td>
+<td data-day="6"></td>
+<td data-day="0" class="gray">cô Lan</td>
+</tr>
+
+<tr data-time="14:30">
+<td class="time">14:30</td>
+<td data-day="6" class="blue">swim</td>
+<td data-day="7" class="dodgerblue">(swim)</td>
+</tr>
+
+<tr data-time="16:00">
+<td class="time">16:00</td>
+<td data-day="6" class="green">football</td>
+<td data-day="0" ></td>
 </tr>
 
 <tr data-time="16:40">
@@ -125,6 +144,46 @@ th { background:#bfbfbf; font-weight:bold; }
 <td data-day="6"></td><td data-day="0"></td>
 </tr>
 
+<tr data-time="19:30">
+<td class="time">19:30</td>
+<td data-day="1"></td>
+<td data-day="2" class="gray">eat</td>
+<td data-day="3"></td>
+<td data-day="4" class="gray">eat</td>
+<td data-day="5"></td>
+<td data-day="6"></td>
+<td data-day="0"></td>
+</tr>
+
+<tr data-time="20:15">
+<td class="time">20:15</td>
+<td data-day="1"></td>
+<td data-day="2" rowspan="3" data-start="20:15" data-end="21:00">study</td>
+<td data-day="3"></td>
+<td data-day="4" rowspan="3" data-start="20:15" data-end="21:00">study</td>
+<td data-day="5"></td>
+<td data-day="6"></td>
+<td data-day="0"></td>
+</tr>
+
+<tr data-time="20:30">
+<td class="time">20:30</td>
+<td data-day="1" class="gray">eat + bath</td>
+<td data-day="3" class="gray">eat + bath</td>
+<td data-day="5" class="gray">eat + bath</td>
+<td data-day="6"></td>
+<td data-day="0"></td>
+</tr>
+
+<tr data-time="21:00">
+<td class="time">21:00</td>
+<td data-day="1">study</td>
+<td data-day="3">study</td>
+<td data-day="5">study</td>
+<td data-day="6"></td>
+<td data-day="0"></td>
+</tr>
+
 <tr data-time="22:00">
 <td class="time">22:00</td>
 <td data-day="1" class="gray">sleep</td>
@@ -138,10 +197,16 @@ th { background:#bfbfbf; font-weight:bold; }
 
 <script>
 function toMin(t){let[a,b]=t.split(":");return a*60+ +b}
+
+function isTimeBetween(now, start, end) {
+  return now >= toMin(start) && now < toMin(end);
+}
+
 function tick(){
   const now=new Date()
   const day=now.getDay()
   const cur=now.getHours()*60+now.getMinutes()
+
 
   document.querySelectorAll(".day-highlight,.time-highlight,.blink")
     .forEach(e=>e.classList.remove("day-highlight","time-highlight","blink"))
@@ -159,7 +224,18 @@ function tick(){
       break
     }
   }
+
+  document.querySelectorAll("td[rowspan]").forEach(td => {
+    const start = td.dataset.start;
+    const end = td.dataset.end;
+    if (isTimeBetween(cur, start, end)) {
+      td.classList.add("blink");
+    } else {
+      td.classList.remove("blink");
+    }
+  });
 }
+
 setInterval(tick,1000);tick()
 </script>
 </body>
